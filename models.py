@@ -1,33 +1,47 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.db import models
 
-# Create your models here.
+class login_data(models.Model):
+	username=models.CharField(max_length=100)
+	password=models.CharField(max_length=100)
+	first_name=models.CharField(max_length=100)
+	last_name=models.CharField(max_length=100)
 
 
-class Author(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField(unique=True)
-    active = models.BooleanField(default=False)
-    created_on = models.DateTimeField(auto_now_add=True)
-    last_logged_in = models.DateTimeField(auto_now=True)
+class user_hardware_mapping(models.Model):
+	user_name=models.CharField(max_length=100)
+	hardware_id = models.IntegerField(max_length=50)
+	hardware_reference_name = models.CharField(max_length=100)
+	crop_name=models.CharField(max_length=100)
+
+class soil_moisture_dictonary(models.Model):
+	crop_name=models.CharField(max_length=100)
+	wet=models.IntegerField(50)
+	normal=models.IntegerField(50)
+	dry=models.IntegerField(50)
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=100, unique=True)
-    author = models.ForeignKey(Author)
+
+class irrigation_history(models.Model):
+	hardware_id=models.IntegerField(max_length=50)
+	irrigation_timestamp=models.DateField(50)
+	temperature=models.FloatField(50)
+	before_moisture=models.IntegerField(50)
+	after_moisture=models.IntegerField(50)
+
+class moisture_history(models.Model):
+	hardware_id=models.IntegerField(max_length=50)
+	reading_timestamp=models.IntegerField(50)
+	reading_value=models.IntegerField(50)
 
 
-class Tag(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=100, unique=True)
-    author = models.ForeignKey(Author)
+		
+class Meta:
+        managed = False
+        db_table = 'login_data'
 
 
-class Post(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
-    content = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(Author)
-    category = models.ForeignKey(Category)
-    tags = models.ManyToManyField(Tag)
+
+		

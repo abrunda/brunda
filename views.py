@@ -1,9 +1,11 @@
-from django.http import HttpResponse
-import datetime
-from django.shortcuts import render_to_response
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
-#...
+from django.shortcuts import render
 
-def today_is(request):
-    now = datetime.datetime.now()
-    return render_to_response('blog/datetime.html', {'now': now })
+from django.http import JsonResponse
+
+
+
+def home(request):
+	return render(request, "helloworld/index.html",{})
