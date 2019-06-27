@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login_data',
     'moisture_history',
-    'irrigation_history'
+    'irrigation_history',
+    'moisture_threshold'
 ]
 
 MIDDLEWARE = [

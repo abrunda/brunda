@@ -21,6 +21,6 @@ from helloworld.views import home
 urlpatterns = [
 
 	url(r'^admin/',admin.site.urls),
-	url(r'^home/',home)
+	url(r'^home/',views.homepage)
     
     ]

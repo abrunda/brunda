@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'helloworld',
+    'login_data',
+    'moisture_history',
+    'irrigation_history',
+    'moisture_threshold',
     
 ]
 
@@ -57,7 +61,8 @@ ROOT_URLCONF = 'HelloDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+        'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
